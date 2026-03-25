@@ -38,8 +38,8 @@ function renderMenu(filter = 'all') {
                 div.className = 'menu-item';
                 
                 let tags = '';
-                if (item.vegan) tags += '<span class="tag-vegan">[V]</span>';
-                if (item.gf) tags += '<span class="tag-gf">[GF]</span>';
+                if (item.vegan) tags += '<span class="tag-vegan label-tech">[V] Vegan</span>';
+                if (item.gf) tags += '<span class="tag-gf label-tech">[GF] Gluten-Free</span>';
 
                 div.innerHTML = `
                     <div class="menu-item-info">
@@ -176,21 +176,98 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 9. Profit Calculator
-    const revInput = document.getElementById('revenue-input');
-    const upsellRange = document.getElementById('upsell-rate');
-    const upsellVal = document.getElementById('upsell-val');
-    const gainTotal = document.getElementById('gain-total');
 
-    if (revInput && upsellRange) {
-        const updateCalc = () => {
-            const rev = parseFloat(revInput.value) || 0;
-            const rate = parseFloat(upsellRange.value) / 100;
-            const annualGain = rev * rate * 12;
-            upsellVal.textContent = `${upsellRange.value}%`;
-            gainTotal.textContent = `€${Math.round(annualGain).toLocaleString()}`;
-        };
-        revInput.addEventListener('input', updateCalc);
-        upsellRange.addEventListener('input', updateCalc);
+    // 9. Theme Toggle Logic
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    
+    // Check saved preference
+    const savedTheme = localStorage.getItem('culinaut-theme');
+    if (savedTheme === 'light') body.classList.add('light-mode');
+    
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+            const currentTheme = body.classList.contains('light-mode') ? 'light' : 'dark';
+            localStorage.setItem('culinaut-theme', currentTheme);
+        });
     }
+
+    // 10. Technique Deep Dive Data & Modal
+    const techCards = document.querySelectorAll('.tech-card');
+    const modal = document.getElementById('tech-modal');
+    const modalContent = document.getElementById('tech-details');
+    const modalClose = document.querySelector('.modal-close');
+    
+    const techData = {
+        'Bakery': {
+            title: 'Mastering the <i>Sourdough Crust</i>',
+            content: `
+                <h3>The Physics of Oven-Spring</h3>
+                <p>Oven spring is the final burst of expansion that occurs during the first 10-12 minutes of baking. It is driven by the rapid expansion of CO2 and steam captured within the gluten matrix.</p>
+                <div class="data-grid">
+                    <div class="data-point"><span>Optimum pH</span><strong>3.8 - 4.2</strong></div>
+                    <div class="data-point"><span>Steam Saturation</span><strong>85%</strong></div>
+                </div>
+                <h3>The Maillard Reaction</h3>
+                <p>The golden-brown crust is a result of amino acids reacting with reducing sugars at high heat, creating hundreds of flavor compounds.</p>
+            `
+        },
+        'Sauces': {
+            title: 'The Geometry of <i>Emulsions</i>',
+            content: `
+                <h3>Understanding Surface Tension</h3>
+                <p>An emulsion is a mixture of two liquids that are normally immiscible. In culinary science, we focus on oil-in-water emulsions like Hollandaise or Mayonnaise.</p>
+                <div class="data-grid">
+                    <div class="data-point"><span>Droplet Size</span><strong>< 10μm</strong></div>
+                    <div class="data-point"><span>Critical Temp</span><strong>63°C</strong></div>
+                </div>
+            `
+        },
+        'Preservation': {
+            title: 'Modernist <i>Fermentation</i>',
+            content: `
+                <h3>Lacto-Fermentation Science</h3>
+                <p>Lactobacillus bacteria convert sugars into lactic acid, lowering the pH and preserving the vegetables while creating a complex umami profile.</p>
+                <div class="data-grid">
+                    <div class="data-point"><span>Salinity</span><strong>2.5%</strong></div>
+                    <div class="data-point"><span>Optimal pH</span><strong>< 4.6</strong></div>
+                </div>
+            `
+        }
+    };
+    
+    techCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const category = card.querySelector('.category').textContent;
+            const data = techData[category];
+            if (data) {
+                modalContent.innerHTML = `
+                    <span class="badge">${category}</span>
+                    <h2 class="display-sm">${data.title}</h2>
+                    <div class="tech-deep-dive">
+                        ${data.content}
+                    </div>
+                `;
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    });
+    
+    if (modalClose) {
+        modalClose.addEventListener('click', () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    }
+    
+    // Close on outside click
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+
 });
