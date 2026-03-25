@@ -1,0 +1,13 @@
+# OS Metadata
+.DS_Store
+Thumbs.db
+
+# Dependencies
+node_modules/
+
+# Local Environment
+.env
+*.log
+
+# Design Assets (Optional: uncomment if using external CDN)
+# assets/

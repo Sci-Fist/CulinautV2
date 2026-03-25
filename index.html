@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chef's Digital Kitchen | Premium Culinary Tech & Scientific Audits</title>
+    <meta name="description" content="Expert Culinary Tech Consulting. Interactive QR menus, LMIV Allergen Audits, and Professional Food Photography for restaurants. Turn your kitchen into a digital powerhouse.">
+    <meta name="keywords" content="Culinary Tech, Restaurant Consultant, Oecotrophologist, Food Safety Audit, QR Menu, Food Photography, Digital Kitchen">
+    <meta name="description" content="Elevate your restaurant with custom digital menus, responsive websites, and allergen compliance dashboards. No more PDFs. Manage your kitchen digitally.">
+    <!-- Google Fonts: Outfit & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor-glow"></div>
+    <div class="cursor-dot"></div>
+    <!-- Navigation -->
+    <nav class="glass-nav">
+        <a href="#hero" class="logo">Chef’s <span>Digital</span></a>
+        <div class="nav-links">
+            <a href="#hero">Mastery</a>
+            <a href="#services">Services</a>
+            <a href="#pricing">Packages</a>
+            <a href="#stack">Tech Stack</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <a href="#contact" class="btn btn-primary compact">Get Started</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero reveal">
+        <div class="hero-bg">
+            <img src="assets/hero.png" alt="Premium Culinary Tech">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <span class="badge">Chef & Oecotrophologist</span>
+            <h1>Digital <span class="highlight">Menu Mastery</span>.</h1>
+            <p>I build high-performance digital solutions for the hospitality industry. From interactive allergen-aware menus to full brand websites, designed by a chef who speaks your language.</p>
+            <div class="hero-actions">
+                <a href="#demo" class="btn btn-primary">Try the Anti-PDF Demo</a>
+                <a href="#services" class="btn btn-secondary">Explore Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Demo Section -->
+    <section id="demo" class="demo-section reveal">
+        <div class="section-header">
+            <h2>The Anti-PDF Dashboard</h2>
+            <p>See how easily a client can browse your menu, or how fast your staff can update items.</p>
+        </div>
+
+        <div class="dashboard-grid">
+            <!-- Client View -->
+            <div class="dash-card client-view">
+                <h3>Customer View <span class="badge">Live Preview</span></h3>
+                <div class="menu-controls">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="vegan">Vegan</button>
+                    <button class="filter-btn" data-filter="gf">Gluten Free</button>
+                </div>
+                <div id="live-menu" class="menu-list">
+                    <!-- Loaded by JS -->
+                </div>
+            </div>
+
+            <!-- Admin View -->
+            <div class="dash-card admin-view">
+                <h3>Kitchen Controls <span class="badge admin">Owner View</span></h3>
+                <div class="admin-form">
+                    <div class="form-group">
+                        <label>Dish Name</label>
+                        <input type="text" id="add-name" placeholder="Truffle Pasta">
+                    </div>
+                    <div class="form-group">
+                        <label>Price (€)</label>
+                        <input type="number" id="add-price" placeholder="18.50">
+                    </div>
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select id="add-category">
+                            <option value="Starters">Starters</option>
+                            <option value="Mains">Mains</option>
+                            <option value="Desserts">Desserts</option>
+                        </select>
+                    </div>
+                    <div class="form-checkboxes">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="add-vegan"> Vegan
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="add-gf"> Gluten Free
+                        </label>
+                    </div>
+                    <button id="add-item-btn" class="btn btn-primary btn-full">Update Menu Live</button>
+                </div>
+                <div class="admin-insights">
+                    <div class="insight-stat">
+                        <span class="stat-label">Active Items</span>
+                        <span class="stat-val" id="count-items">3</span>
+                    </div>
+                    <div class="insight-stat">
+                        <span class="stat-label">Daily Views</span>
+                        <span class="stat-val">1.2k</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section reveal">
+        <div class="section-header">
+            <span class="badge">A Menu of Modern Solutions</span>
+            <h2>Specialized Solutions</h2>
+            <p>I don't just 'make websites'. I solve operational headaches and drive revenue through kitchen-aware tech.</p>
+        </div>
+        <div class="services-grid">
+            <!-- Service 1: Live Menu -->
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <h3>Live-Sync Menu System</h3>
+                <p class="price">€45<span>/month</span></p>
+                <ul>
+                    <li>QR-Code ready HTML menu</li>
+                    <li>Instant live price & item changes</li>
+                    <li>Mobile-perfect (No-zoom UX)</li>
+                    <li>LMIV-ready allergen tagging</li>
+                </ul>
+                <a href="#contact" class="btn btn-secondary btn-full">Automate My Menu</a>
+            </div>
+
+            <!-- Service 2: Full Presence -->
+            <div class="service-card featured">
+                <div class="service-icon">🌍</div>
+                <h3>The 'Local Hero' Presence</h3>
+                <p class="price">€1,499<span>one-time</span></p>
+                <ul>
+                    <li>Custom Premium Brand Website</li>
+                    <li>Advanced Local SEO (Google Maps)</li>
+                    <li>Online Table Booking Integration</li>
+                    <li>12 Months Menu Hosting included</li>
+                </ul>
+                <a href="#contact" class="btn btn-primary btn-full">Secure Your Area</a>
+            </div>
+
+            <!-- Service 3: Consulting -->
+            <div class="service-card">
+                <div class="service-icon">🧪</div>
+                <h3>Science & Profit Audit</h3>
+                <p class="price">€249<span>/session</span></p>
+                <ul>
+                    <li>Full Oecotrophologist LMIV Audit</li>
+                    <li>Profit-focused Menu Engineering</li>
+                    <li>Nutritional value breakdowns</li>
+                    <li>Direct consultancy from a Chef</li>
+                </ul>
+                <a href="#contact" class="btn btn-secondary btn-full">Book Expert Audit</a>
+            </div>
+        </div>
+
+        <!-- NEW: PokePlantDex Inspired AI Scanner Mock -->
+        <div class="scanner-mock">
+            <div class="scanner-header">
+                <span class="badge">Experimental Tool</span>
+                <h3>AI Recipe & Allergen Auditor</h3>
+                <p>Upload a recipe photo or PDF to see our automated LMIV compliance scan in action.</p>
+            </div>
+            <div class="scanner-container">
+                <div class="scanner-input">
+                    <div class="upload-box" id="drop-zone">
+                        <div class="upload-icon">📸</div>
+                        <p>Drop recipe here or click to upload</p>
+                        <input type="file" id="recipe-upload" hidden>
+                    </div>
+                    <button class="btn btn-primary btn-full" id="scan-btn">Start Audit Scan</button>
+                </div>
+                <div class="scanner-results" id="scan-results">
+                    <div class="empty-state">
+                        <p>Awaiting input...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust / Why me section -->
+    <section id="trust" class="trust-section reveal">
+        <div class="section-header">
+            <h2>The Chef-Developer Advantage</h2>
+            <p>Why choose specialized tech for your kitchen?</p>
+        </div>
+        <div class="trust-grid">
+            <div class="trust-item">
+                <div class="trust-icon">🔪</div>
+                <h4>Operational Insight</h4>
+                <p>I know what a Saturday night rush feels like. My tech is built for speed and durability under pressure.</p>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">🔬</div>
+                <h4>Scientific Accuracy</h4>
+                <p>As an Oecotrophologist, I ensure your ingredients, allergens, and nutrition are 100% compliant and safe.</p>
+            </div>
+            <div class="trust-item">
+                <div class="trust-icon">💻</div>
+                <h4>Proprietary Tech</h4>
+                <p>No clunky templates. I build custom interactive tools designed specifically for the hospitality workflow.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advanced Add-ons Section -->
+    <section id="addons" class="addons-section reveal">
+        <div class="section-header">
+            <span class="badge">Scale Your Operations</span>
+            <h2>Advanced Kitchen Tech</h2>
+            <p>Go beyond the website. Manage your team and your station digitally.</p>
+        </div>
+        <div class="addons-grid">
+            <div class="addon-card glass reveal">
+                <div class="addon-icon">👻</div>
+                <h4>Ghost Kitchen Setup</h4>
+                <p>Launch high-margin virtual brands using your existing inventory for UberEats & Deliveroo.</p>
+            </div>
+            <div class="addon-card glass reveal">
+                <div class="addon-icon">🛡️</div>
+                <h4>Allergy-Safe Certification</h4>
+                <p>Full LMIV audit, staff safety training, and a digital 'Trust' badge for your menus.</p>
+            </div>
+            <div class="addon-card glass reveal">
+                <div class="addon-icon">📈</div>
+                <h4>Automated Review Systems</h4>
+                <p>Table-side NFC routing for 5★ Google Reviews with AI-automated reputation management.</p>
+            </div>
+            <div class="addon-card glass reveal">
+                <div class="addon-icon">📸</div>
+                <h4>Food Porn Content Kits</h4>
+                <p>Monthly 4K photography & video retainer delivering social-ready assets of your star dishes.</p>
+            </div>
+            <div class="addon-card glass reveal">
+                <div class="addon-icon">🎓</div>
+                <h4>Digital SOP Hub</h4>
+                <p>Centralized video training portal for instant onboarding of new line-staff and prep cooks.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing & Packages Section -->
+    <section id="pricing" class="pricing-section reveal">
+        <div class="section-header">
+            <span class="badge">Monetizable Solutions</span>
+            <h2>Premium Service Packages</h2>
+            <p>Direct investment for transformational kitchen technology and scientific auditing.</p>
+        </div>
+        <div class="pricing-grid">
+            <!-- Package 1 -->
+            <div class="pricing-card">
+                <div class="tier">Subscription</div>
+                <h4>The Menu-Sync</h4>
+                <p class="price">€45<span>/mo</span></p>
+                <ul>
+                    <li>Live-Sync QR Menu</li>
+                    <li>LMIV Allergen Sync</li>
+                    <li>Basic Support</li>
+                </ul>
+                <a href="#contact" class="btn btn-secondary btn-full">Get Syncing</a>
+            </div>
+            <!-- Pillar 3: Digital -->
+            <div class="pillar-card digital">
+                <div class="pillar-icon">📸</div>
+                <h3>Digital Growth</h3>
+                <p class="subtitle">Content & Code</p>
+                <ul>
+                    <li><strong>Food Photography</strong>: Cinematic dish shots that sell themselves.</li>
+                    <li><strong>The "Anti-PDF" Menu</strong>: Interactive, live-updateable QR menus.</li>
+                    <li><strong>Local Hero SEO</strong>: Dominating Google Maps and search results.</li>
+                </ul>
+            </div>
+            <!-- Package 2 -->
+            <div class="pricing-card featured">
+                <div class="tier">Transformation</div>
+                <h4>The 'Local Hero'</h4>
+                <p class="price">€1,999<span>one-time</span></p>
+                <ul>
+                    <li>Custom Premium Website</li>
+                    <li>Full Local SEO (G-Maps)</li>
+                    <li>Booking Integration</li>
+                    <li>1 Year Free Hosting</li>
+                </ul>
+                <a href="#contact" class="btn btn-primary btn-full">Secure My Area</a>
+            </div>
+            <!-- Package 3 -->
+            <div class="pricing-card">
+                <div class="tier">Expert Audit</div>
+                <h4>The Lab-Session</h4>
+                <p class="price">€499<span>one-time</span></p>
+                <ul>
+                    <li>Full Oecotrophologist Audit</li>
+                    <li>Scientific LMIV Report</li>
+                    <li>Recipe Margin Engineering</li>
+                </ul>
+                <a href="#contact" class="btn btn-secondary btn-full">Book Expert Audit</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section id="comparison" class="comparison-section reveal">
+        <div class="section-header">
+            <span class="badge">The Market Gap</span>
+            <h2>Why I’m Different</h2>
+            <p>Most 'experts' only see one side of the coin. I see the whole station.</p>
+        </div>
+        <div class="comparison-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Standard Web Agency</th>
+                        <th class="highlight">Chef’s Digital</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Operational Vision</strong></td>
+                        <td>None (Marketer perspective)</td>
+                        <td>Expert (Chef perspective)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Legal Science</strong></td>
+                        <td>Outsourced/Liability</td>
+                        <td>Internal (Oecotrophologist)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Menu UX</strong></td>
+                        <td>Static PDF Links</td>
+                        <td>Live Interactive Data</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Implementation</strong></td>
+                        <td>Remote / Hands-off</td>
+                        <td>On-site & Hands-on</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Visual Appetizers (Photography) -->
+    <section id="photography" class="photography-section reveal">
+        <div class="section-header">
+            <span class="badge">Visual Storytelling</span>
+            <h2>Food Photography</h2>
+            <p>They eat with their eyes first. I provide the high-definition fuel for your digital menu.</p>
+        </div>
+        <div class="photography-grid">
+            <div class="photo-card reveal">
+                <img src="assets/dish_1.png" alt="Culinary Photography 1">
+            </div>
+            <div class="photo-card reveal">
+                <img src="assets/dish_2.png" alt="Culinary Photography 2">
+            </div>
+            <div class="photo-card reveal">
+                <img src="assets/dish_3.png" alt="Culinary Photography 3">
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works Section -->
+    <section id="process" class="process-section reveal">
+        <div class="section-header">
+            <span class="badge">The Roadmap</span>
+            <h2>From Paper to Power</h2>
+            <p>A streamlined 3-step transition to a smarter, more profitable kitchen.</p>
+        </div>
+        <div class="process-grid">
+            <div class="step-card">
+                <div class="step-num">01</div>
+                <h4>The Audit</h4>
+                <p>We analyze your current menu, LMIV compliance, and digital visibility gaps.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num">02</div>
+                <h4>The Build</h4>
+                <p>I design your custom interactive menu and shoot high-end photography of your star dishes.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num">03</div>
+                <h4>The Deploy</h4>
+                <p>On-site hardware setup and staff training. I stay until your first service is seamless.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expert Tool: Profit Calculator -->
+    <section id="calculator" class="calculator-section reveal">
+        <div class="section-header">
+            <span class="badge">Expert Tool</span>
+            <h2>Menu Profit Calculator</h2>
+            <p>See the immediate impact of digitizing your menu and optimizing your margins.</p>
+        </div>
+        <div class="calc-container glass">
+            <div class="calc-input">
+                <label>Average Monthly Revenue (€)</label>
+                <input type="number" id="revenue-input" value="25000">
+                <label>Check Size Increase with QR Menu (%)</label>
+                <p class="small text-secondary">Market average is 15-25%</p>
+                <input type="range" id="upsell-rate" min="5" max="30" value="15">
+                <span id="upsell-val">15%</span>
+            </div>
+            <div class="calc-result">
+                <h4>Potential Annual Gains</h4>
+                <div class="gain-amount" id="gain-total">€45,000</div>
+                <p>By switching to Interactive QR Menus and optimized upselling.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advanced Kitchen Tech Stack -->
+    <section id="stack" class="stack-section reveal">
+        <div class="section-header">
+            <span class="badge">Enterprise Level</span>
+            <h2>Advanced Kitchen Tech</h2>
+            <p>Future-proof your operation with mission-critical AI and management tools.</p>
+        </div>
+        <div class="stack-grid">
+            <div class="stack-card">
+                <div class="stack-icon">🤖</div>
+                <h4>AI WhatsApp Concierge</h4>
+                <p>Automated reservations, FAQs, and loyalty engagement via custom-trained AI bots.</p>
+            </div>
+            <div class="stack-card">
+                <div class="stack-icon">📊</div>
+                <h4>Kitchen ERP / Margins</h4>
+                <p>Real-time food cost tracking. Automated inventory alerts and margin oversight.</p>
+            </div>
+            <div class="stack-card">
+                <div class="stack-icon">👻</div>
+                <h4>Ghost Kitchen Strategy</h4>
+                <p>Launch multi-concept virtual brands from your existing kitchen space.</p>
+            </div>
+            <div class="stack-card">
+                <div class="stack-icon">🎓</div>
+                <h4>Digital Recipe Bible</h4>
+                <p>Centralized hub for standardized prep instructions, videos, and staff onboarding.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section reveal">
+        <div class="about-grid">
+            <div class="about-visual">
+                <div class="visual-box"></div>
+            </div>
+            <div class="about-text">
+                <span class="badge">Expertise</span>
+                <h2>Chef & Oecotrophologist</h2>
+                <p>With a background in **Oecotrophologie (Nutrition Science)** and years of professional kitchen experience, I bridge the gap between culinary art and digital precision.</p>
+                <p>I don't just build websites; I create systems that ensure your menu is scientifically compliant, allergen-safe, and architected for maximum profitability. From nutritional auditing to seamless QR-menus, I handle the technical side so you can focus on the food.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section reveal">
+        <div class="section-header">
+            <h2>Let’s Digitize Your Kitchen</h2>
+            <p>Ready to ditch the PDFs? Send a message to get started.</p>
+        </div>
+        <div class="contact-container">
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea rows="4" placeholder="Tell me about your restaurant/concept..." required></textarea>
+                <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="glass-footer">
+        <div class="footer-content">
+            <p>&copy; <span id="current-year"></span> Chef's Digital Kitchen. Created with Culinary Instinct & Digital Precision.</p>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+</body>
+</html>
