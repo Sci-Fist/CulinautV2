@@ -1,51 +1,107 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>contribution.usercontent.com - Coming Soon</title>
+    <title>Culinaut | The Chef's Table</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@300;400;500;600&family=Newsreader:ital,wght@0,300;0,400;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../index.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+        .forum-section {
+            padding-top: calc(var(--nav-height) + 2rem);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .feed-item {
+            background: var(--surface-highest);
+            padding: 3rem;
+            border-radius: 12px;
+            margin-bottom: 3rem;
+            border: 1px solid var(--surface-high);
+            transition: transform 0.3s ease;
+        }
+        .feed-item:hover { transform: translateY(-5px); }
+        .chef-meta {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .chef-avatar {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            font-size: 1.5rem;
         }
-        .container {
-            background: white;
-            border-radius: 12px;
-            padding: 60px 40px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            text-align: center;
-            max-width: 600px;
-        }
-        h1 {
-            color: #333;
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            word-break: break-word;
-        }
-        p {
-            color: #666;
-            font-size: 1.2em;
-            line-height: 1.6;
-        }
-        .emoji {
-            font-size: 4em;
-            margin-bottom: 20px;
-        }
+        .chef-info h4 { font-size: 1.2rem; margin-bottom: 0.2rem; }
+        .chef-info span { font-size: 0.8rem; color: var(--on-surface-variant); }
+        .feed-content h2 { font-family: var(--font-editorial); font-style: italic; font-size: 2.2rem; margin-bottom: 1rem; }
+        .feed-tags { display: flex; gap: 1rem; margin-top: 2rem; }
     </style>
 </head>
-<body>
-    <div class="container">
-        <div class="emoji">🚀</div>
-        <h1>contribution.usercontent.com</h1>
-        <p>This domain is coming soon.</p>
-    </div>
+<body class="dark-mode">
+    <nav class="glass-nav">
+        <a href="../index.html" class="logo">Culinaut<span>.</span></a>
+        <div class="nav-links">
+            <a href="../index.html">Mastery</a>
+            <a href="recipe.html">Library</a>
+            <a href="sustainable.html">Impact</a>
+            <a href="forum.html">Chef's Table</a>
+        </div>
+    </nav>
+
+    <section class="forum-section">
+        <div class="section-header reveal">
+            <span class="badge">Atelier Feed</span>
+            <h1 class="display-lg">The <i>Chef's Table</i></h1>
+            <p>Technique sharing, station optimization, and high-gastronomy discourse.</p>
+        </div>
+
+        <div class="feed-container">
+            <div class="feed-item reveal">
+                <div class="chef-meta">
+                    <div class="chef-avatar">🔪</div>
+                    <div class="chef-info">
+                        <h4>Chef Marcus V.</h4>
+                        <span>Executive Chef, L'Atelier</span>
+                    </div>
+                </div>
+                <div class="feed-content">
+                    <h2>The Secret to <i>Static Emulsions</i></h2>
+                    <p>When working with lipid-heavy sauces, the droplet size is everything. I've found that pre-chilling the oil to 4°C before shearing into the egg yolk base at 55°C creates a significantly more stable structure that withstands heat-lamp holding for 2+ hours.</p>
+                </div>
+                <div class="feed-tags">
+                    <span class="label-tech">#SauceScience</span>
+                    <span class="label-tech">#KitchenOps</span>
+                </div>
+            </div>
+
+            <div class="feed-item reveal">
+                <div class="chef-meta">
+                    <div class="chef-avatar">🔬</div>
+                    <div class="chef-info">
+                        <h4>Dr. Elena S.</h4>
+                        <span>Lead Oecotrophologist</span>
+                    </div>
+                </div>
+                <div class="feed-content">
+                    <h2>LMIV Compliance in <i>Fermentation</i></h2>
+                    <p>A reminder to all partners: if your fermented items are used as sub-components in multiple dishes, the G-category allergen potential must be audited at the batch level, not just the final plate.</p>
+                </div>
+                <div class="feed-tags">
+                    <span class="label-tech">#Compliance</span>
+                    <span class="label-tech">#HealthSafety</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../index.js"></script>
 </body>
 </html>

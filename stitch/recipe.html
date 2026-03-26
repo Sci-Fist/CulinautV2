@@ -1,51 +1,154 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>contribution.usercontent.com - Coming Soon</title>
+    <title>Culinaut | Digital Recipe Bible</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@300;400;500;600&family=Newsreader:ital,wght@0,300;0,400;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../index.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+        .recipe-bible {
+            padding-top: calc(var(--nav-height) + 2rem);
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        .container {
-            background: white;
+        .recipe-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+        .recipe-image {
+            height: 500px;
             border-radius: 12px;
-            padding: 60px 40px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            text-align: center;
-            max-width: 600px;
+            overflow: hidden;
+            background: var(--surface-low);
         }
-        h1 {
-            color: #333;
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            word-break: break-word;
+        .recipe-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
-        p {
-            color: #666;
-            font-size: 1.2em;
-            line-height: 1.6;
+        .recipe-meta {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
-        .emoji {
-            font-size: 4em;
-            margin-bottom: 20px;
+        .scientific-data {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+            padding: 2rem;
+            background: var(--surface-highest);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-pulse);
+        }
+        .data-point span {
+            display: block;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--on-surface-variant);
+            margin-bottom: 0.5rem;
+        }
+        .data-point strong {
+            font-family: var(--font-mono);
+            font-size: 1.4rem;
+            color: var(--accent-pulse);
+        }
+        .instructions-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+        }
+        .ingredients-list {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+        .step {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--surface-high);
+        }
+        .step-num {
+            font-family: var(--font-editorial);
+            font-style: italic;
+            font-size: 1.5rem;
+            color: var(--tertiary);
+            margin-bottom: 1rem;
+            display: block;
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <div class="emoji">🚀</div>
-        <h1>contribution.usercontent.com</h1>
-        <p>This domain is coming soon.</p>
-    </div>
+<body class="dark-mode">
+    <nav class="glass-nav">
+        <a href="../index.html" class="logo">Culinaut<span>.</span></a>
+        <div class="nav-links">
+            <a href="../index.html">Mastery</a>
+            <a href="recipe.html">Library</a>
+            <a href="sustainable.html">Impact</a>
+            <a href="forum.html">Chef's Table</a>
+        </div>
+    </nav>
+
+    <section class="recipe-bible">
+        <div class="recipe-header reveal">
+            <div class="recipe-image">
+                <img src="../assets/tech_sourdough.png" alt="Sourdough">
+            </div>
+            <div class="recipe-meta">
+                <span class="badge">Technical Standard</span>
+                <h1 class="display-lg">24h Fermentation <i>Sourdough</i></h1>
+                <p>A masterclass in hydration control and enzymatic activity. This recipe follows the clinical Culinaut standard for high-volume bakery operations.</p>
+                
+                <div class="scientific-data">
+                    <div class="data-point">
+                        <span>Target pH</span>
+                        <strong>3.95</strong>
+                    </div>
+                    <div class="data-point">
+                        <span>Core Temp</span>
+                        <strong>96°C</strong>
+                    </div>
+                    <div class="data-point">
+                        <span>Salinity</span>
+                        <strong>2.2%</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="instructions-grid">
+            <aside class="ingredients-list reveal">
+                <h3>Ingredients <i>& Tools</i></h3>
+                <ul class="suggestion-list">
+                    <li><strong>700g</strong> Strong Bread Flour</li>
+                    <li><strong>525g</strong> Water (Filtered, 24°C)</li>
+                    <li><strong>150g</strong> Active Levain (100% hydration)</li>
+                    <li><strong>15g</strong> Sea Salt (Maldon)</li>
+                </ul>
+            </aside>
+            <main class="preparation-steps reveal">
+                <div class="step">
+                    <span class="step-num">01. Autolyse</span>
+                    <p>Mix flour and water until no dry spots remain. Let rest for 60 minutes at 22°C to allow initial gluten development and starch conversion.</p>
+                </div>
+                <div class="step">
+                    <span class="step-num">02. Inoculation</span>
+                    <p>Incorporate levain and salt using the Rubaud method. Maintain dough temperature at 24°C. Check pH baseline.</p>
+                </div>
+                <div class="step">
+                    <span class="step-num">03. Bulk Fermentation</span>
+                    <p>Perform four sets of coil folds every 30 minutes. Monitor for 20% volume increase and a pH drop of 0.5 units.</p>
+                </div>
+            </main>
+        </div>
+    </section>
+
+    <script src="../index.js"></script>
 </body>
 </html>

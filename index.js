@@ -82,14 +82,20 @@ document.addEventListener('DOMContentLoaded', () => {
         };
         animateCursor();
 
-        // 3. Hover Effects for Cursor
-        const hoverTargets = 'a, button, .service-card, .pillar-card, .pricing-card, .step-card, .photo-card, .upload-box, input, .menu-item';
+        // 3. Hover Effects for Cursor & Clinical Pulse
+        const hoverTargets = 'a, button, .service-card, .pillar-card, .pricing-card, .step-card, .photo-card, .upload-box, input, .menu-item, .audit-card';
         document.querySelectorAll(hoverTargets).forEach(el => {
             el.addEventListener('mouseenter', () => {
                 glow.style.width = '150px';
                 glow.style.height = '150px';
                 glow.style.background = 'radial-gradient(circle, rgba(0, 242, 255, 0.6) 0%, transparent 70%)';
                 dot.style.transform = 'translate(-50%, -50%) scale(2.5)';
+                
+                // Clinical Pulse for Audit Cards
+                if (el.classList.contains('audit-card')) {
+                    el.classList.add('scanned-pulse');
+                    setTimeout(() => el.classList.remove('scanned-pulse'), 500);
+                }
             });
             el.addEventListener('mouseleave', () => {
                 glow.style.width = '300px';
@@ -99,6 +105,18 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // Scroll-Triggered Soundscapes (Simulated)
+    let lastScrollPos = 0;
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        if (Math.abs(currentScroll - lastScrollPos) > 100) {
+            // Simulated subsonic hum shift
+            glow.style.opacity = '0.8';
+            setTimeout(() => glow.style.opacity = '1', 200);
+            lastScrollPos = currentScroll;
+        }
+    });
 
     // 4. Reveal Observer
     const observer = new IntersectionObserver((entries) => {
@@ -173,25 +191,54 @@ document.addEventListener('DOMContentLoaded', () => {
     // 8. AI Scanner Mock
     const scanBtn = document.getElementById('scan-btn');
     const scanResults = document.getElementById('scan-results');
+    const dropZone = document.getElementById('drop-zone');
+
+    function triggerScan() {
+        if (!scanBtn || !scanResults) return;
+
+        // Visual "Scanning" HUD Overlay
+        const overlay = document.createElement('div');
+        overlay.className = 'scanning-overlay';
+        document.querySelector('.scanner-container').appendChild(overlay);
+
+        scanBtn.textContent = 'Analysing Assets...';
+        scanBtn.disabled = true;
+
+        setTimeout(() => {
+            overlay.remove();
+            scanResults.innerHTML = `
+                <div class="result-item success scanned-pulse">
+                    <h4>LMIV Audit: Passed</h4>
+                    <p>All 14 mandatory allergens correctly labeled.</p>
+                    <span class="confidence">99.2% Accuracy</span>
+                </div>
+                <div class="result-item scanned-pulse">
+                    <h4>Nutritional Check</h4>
+                    <p>Kcal calculation verified (450kcal avg).</p>
+                    <span class="confidence">87.5% Confidence</span>
+                </div>
+            `;
+            scanBtn.textContent = 'Scan Complete';
+            scanBtn.disabled = false;
+        }, 3000);
+    }
+
     if (scanBtn) {
-        scanBtn.addEventListener('click', () => {
-            scanBtn.textContent = 'Analysing Assets...';
-            scanBtn.disabled = true;
-            setTimeout(() => {
-                scanResults.innerHTML = `
-                    <div class="result-item success">
-                        <h4>LMIV Audit: Passed</h4>
-                        <p>All 14 mandatory allergens correctly labeled.</p>
-                        <span class="confidence">99.2% Accuracy</span>
-                    </div>
-                    <div class="result-item">
-                        <h4>Nutritional Check</h4>
-                        <p>Kcal calculation verified (450kcal avg).</p>
-                        <span class="confidence">87.5% Confidence</span>
-                    </div>
-                `;
-                scanBtn.textContent = 'Scan Complete';
-            }, 1500);
+        scanBtn.addEventListener('click', triggerScan);
+    }
+
+    if (dropZone) {
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.style.borderColor = 'var(--accent-pulse)';
+        });
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.style.borderColor = '';
+        });
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.style.borderColor = '';
+            triggerScan();
         });
     }
 

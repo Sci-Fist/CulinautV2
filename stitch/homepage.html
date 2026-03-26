@@ -1,51 +1,69 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>contribution.usercontent.com - Coming Soon</title>
+    <title>Culinaut | The Stitch Ecosystem</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@300;400;500;600&family=Newsreader:ital,wght@0,300;0,400;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../index.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+        .stitch-home {
+            height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            background: var(--background);
         }
-        .container {
-            background: white;
-            border-radius: 12px;
-            padding: 60px 40px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        .portal-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            width: 100%;
+            padding: 2rem;
+        }
+        .portal-card {
+            background: var(--surface-low);
+            padding: 4rem 2rem;
             text-align: center;
-            max-width: 600px;
+            border-radius: 20px;
+            border: 1px solid var(--surface-high);
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            text-decoration: none;
+            color: inherit;
         }
-        h1 {
-            color: #333;
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            word-break: break-word;
+        .portal-card:hover {
+            background: var(--surface-highest);
+            transform: scale(1.05);
+            border-color: var(--primary);
         }
-        p {
-            color: #666;
-            font-size: 1.2em;
-            line-height: 1.6;
-        }
-        .emoji {
-            font-size: 4em;
-            margin-bottom: 20px;
-        }
+        .portal-icon { font-size: 4rem; margin-bottom: 2rem; display: block; }
+        .portal-card h2 { font-family: var(--font-editorial); font-style: italic; font-size: 2.5rem; margin-bottom: 1rem; }
     </style>
 </head>
-<body>
-    <div class="container">
-        <div class="emoji">🚀</div>
-        <h1>contribution.usercontent.com</h1>
-        <p>This domain is coming soon.</p>
-    </div>
+<body class="dark-mode">
+    <section class="stitch-home">
+        <div class="portal-grid">
+            <a href="recipe.html" class="portal-card reveal">
+                <span class="portal-icon">📖</span>
+                <h2>Recipe <i>Bible</i></h2>
+                <p>Scientific standards & preparation modules.</p>
+            </a>
+            <a href="sustainable.html" class="portal-card reveal">
+                <span class="portal-icon">♻️</span>
+                <h2>Circular <i>Impact</i></h2>
+                <p>Real-time sustainability & waste metrics.</p>
+            </a>
+            <a href="forum.html" class="portal-card reveal">
+                <span class="portal-icon">🔪</span>
+                <h2>Chef's <i>Table</i></h2>
+                <p>Community feed & technique sharing.</p>
+            </a>
+        </div>
+    </section>
+
+    <script src="../index.js"></script>
 </body>
 </html>

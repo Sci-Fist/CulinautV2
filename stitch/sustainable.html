@@ -1,51 +1,127 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>contribution.usercontent.com - Coming Soon</title>
+    <title>Culinaut | Circular Value Chain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../index.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+        .circular-dashboard {
+            padding-top: calc(var(--nav-height) + 2rem);
+            max-width: 1400px;
+            margin: 0 auto;
         }
-        .container {
-            background: white;
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        .impact-card {
+            background: var(--surface-highest);
+            padding: 2.5rem;
             border-radius: 12px;
-            padding: 60px 40px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             text-align: center;
-            max-width: 600px;
+            border: 1px solid var(--surface-high);
         }
-        h1 {
-            color: #333;
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            word-break: break-word;
+        .impact-card h3 { font-size: 0.8rem; text-transform: uppercase; color: var(--on-surface-variant); margin-bottom: 1rem; }
+        .impact-val { font-size: 3rem; font-family: var(--font-heading); color: var(--primary); }
+        .chain-visual {
+            background: var(--surface-low);
+            padding: 4rem;
+            border-radius: 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: relative;
         }
-        p {
-            color: #666;
-            font-size: 1.2em;
-            line-height: 1.6;
+        .stage-node {
+            width: 200px;
+            text-align: center;
+            z-index: 2;
         }
-        .emoji {
-            font-size: 4em;
-            margin-bottom: 20px;
+        .stage-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .chain-visual::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background: dashed var(--primary);
+            opacity: 0.2;
+            z-index: 1;
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <div class="emoji">🚀</div>
-        <h1>contribution.usercontent.com</h1>
-        <p>This domain is coming soon.</p>
-    </div>
+<body class="dark-mode">
+    <nav class="glass-nav">
+        <a href="../index.html" class="logo">Culinaut<span>.</span></a>
+        <div class="nav-links">
+            <a href="../index.html">Mastery</a>
+            <a href="recipe.html">Library</a>
+            <a href="sustainable.html">Impact</a>
+            <a href="forum.html">Chef's Table</a>
+        </div>
+    </nav>
+
+    <section class="circular-dashboard">
+        <div class="section-header reveal">
+            <span class="badge">Sustainability Alpha</span>
+            <h1 class="display-lg">The Circular <i>Value Chain</i></h1>
+            <p>Real-time metrics tracking the transformation from regenerative inputs to upcycled outputs.</p>
+        </div>
+
+        <div class="impact-grid reveal">
+            <div class="impact-card">
+                <h3>CO2 Avoided</h3>
+                <div class="impact-val">12.4<small>kg</small></div>
+            </div>
+            <div class="impact-card">
+                <h3>Water Reclaimed</h3>
+                <div class="impact-val">450<small>L</small></div>
+            </div>
+            <div class="impact-card">
+                <h3>Waste Diverted</h3>
+                <div class="impact-val">98<small>%</small></div>
+            </div>
+            <div class="impact-card">
+                <h3>Local %</h3>
+                <div class="impact-val">85<small>%</small></div>
+            </div>
+        </div>
+
+        <div class="chain-visual reveal">
+            <div class="stage-node">
+                <span class="stage-icon">🌱</span>
+                <h4>Sourcing</h4>
+                <p>Regenerative soil tracking via API.</p>
+            </div>
+            <div class="stage-node">
+                <span class="stage-icon">🔪</span>
+                <h4>Kitchen Ops</h4>
+                <p>AI-driven prep optimization.</p>
+            </div>
+            <div class="stage-node">
+                <span class="stage-icon">🍛</span>
+                <h4>Dining</h4>
+                <p>Low-impact sensory delivery.</p>
+            </div>
+            <div class="stage-node">
+                <span class="stage-icon">♻️</span>
+                <h4>Upcycling</h4>
+                <p>Closed-loop byproduct capture.</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="../index.js"></script>
 </body>
 </html>
