@@ -9,7 +9,8 @@
   "bridge": {
     "supervisor": "Gemini Thinking",
     "operator": "Antigravity",
-    "last_sync": "2026-03-26T05:20:00Z"
+    "last_sync": "2026-03-26T05:20:00Z",
+    "session_uri": "https://gemini.google.com/app/8064c2923f76adb0"
   },
   "directives": [
     "Initialize Bridge Protocol",
