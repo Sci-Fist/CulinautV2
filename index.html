@@ -704,6 +704,56 @@
         </div>
     </footer>
 
-    <script src="index.js"></script>
+    <!-- Command Center Pulse removed per user request. Access via Ctrl + K -->
+
+    <!-- Command Center Overlay -->
+    <div class="command-overlay" id="command-center">
+        <div class="command-header">
+            <h3>COMMAND_CENTER<span>.v01</span></h3>
+            <button id="close-command" class="btn-close">×</button>
+        </div>
+        <div class="command-body">
+            <div class="command-ticker">
+                <div class="ticker-item"><span>LIVE_AUDITS</span><em id="ticker-audits">14</em></div>
+                <div class="ticker-item"><span>ESG_SCORE</span><em>9.8</em></div>
+                <div class="ticker-item"><span>MARGIN_GAIN</span><em>+12%</em></div>
+            </div>
+            <div class="command-nav">
+                <a href="#hero" class="nav-cmd"><span>01</span> Mastery Dashboard</a>
+                <a href="#demo" class="nav-cmd"><span>02</span> Operational Audit</a>
+                <a href="#services" class="nav-cmd"><span>03</span> Specialized Solutions</a>
+                <a href="#circular" class="nav-cmd"><span>04</span> Value Chain</a>
+                <a href="#contact" class="nav-cmd"><span>05</span> Mission Control</a>
+            </div>
+            <div class="command-footer">
+                <!-- Enterprise Telemetry (Directive #2) -->
+                <div class="cmd-telemetry">
+                    <div class="telemetry-header label-tech">SYSTEM_TELEMETRY [PRO_ACTIVE]</div>
+                    <div class="telemetry-grid">
+                        <div class="telemetry-item">
+                            <span>NETWORK_LATENCY</span>
+                            <strong id="telemetry-latency">--ms</strong>
+                        </div>
+                        <div class="telemetry-item">
+                            <span>INTERACTIVE_TTI</span>
+                            <strong id="telemetry-tti">--s</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="audit-switch">
+                    <span>X-RAY AUDIT MODE</span>
+                    <label class="switch">
+                        <input type="checkbox" id="audit-mode-toggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <p class="crypto-hint">Press <code>Ctrl + K</code> to override</p>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="module" src="/index.js"></script>
 </body>
 </html>

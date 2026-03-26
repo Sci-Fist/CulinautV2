@@ -1,4 +1,5 @@
 // Sample Initial Data with Categories
+import { CommandCenter } from './command-center.js';
 let menuItems = [
     { name: "Truffle Tagliatelle", price: 18.50, vegan: false, gf: false, category: "Mains" },
     { name: "Seared Salmon Bowl", price: 21.00, vegan: false, gf: true, category: "Mains" },
@@ -244,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // 9. Theme Toggle Logic
-    const themeToggle = document.getElementById('theme-toggle');
+    const themeToggle = document.getElementById('theme-btn'); // Fixed ID: theme-btn matches index.html
     const body = document.body;
     
     // Check saved preference
@@ -336,4 +337,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // 11. Command Center HUD Logic (Modularized Phase 18)
+    const cmdCenter = new CommandCenter();
+
+    // 12. Enterprise Telemetry Stub (Supervisor Directive #2)
+    console.log('[Culinaut_HUD] Telemetry Online: Phase 18 Modularization Active.');
 });
