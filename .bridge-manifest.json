@@ -1,0 +1,19 @@
+{
+  "project": "CulinautV2",
+  "status": "PRO_ACTIVE",
+  "phase": "0: Initialization",
+  "stack": {
+    "core": "Vite, HTML, JS, CSS",
+    "infrastructure": "GitHub Pages"
+  },
+  "bridge": {
+    "supervisor": "Gemini Thinking",
+    "operator": "Antigravity",
+    "last_sync": "2026-03-26T05:20:00Z"
+  },
+  "directives": [
+    "Initialize Bridge Protocol",
+    "Establish .bridge-manifest.json",
+    "Synchronize with Supervisor Gemini"
+  ]
+}
