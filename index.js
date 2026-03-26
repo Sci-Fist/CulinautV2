@@ -151,6 +151,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const yearSpan = document.getElementById('current-year');
     if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 
+    // Mobile Menu Toggle Logic
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu on link click
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuBtn.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+    }
+
     // 8. AI Scanner Mock
     const scanBtn = document.getElementById('scan-btn');
     const scanResults = document.getElementById('scan-results');

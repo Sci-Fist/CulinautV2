@@ -22,8 +22,10 @@
     --neon-halo: rgba(0, 251, 251, 0.08);
     --liquid-mercury: linear-gradient(135deg, #ffffff 0%, #00fbfb 100%);
     
-    --font-heading: 'Newsreader', serif;
-    --font-body: 'Manrope', sans-serif;
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-editorial: 'Newsreader', serif;
     
     --spacing-editorial: 5.5rem;
     --nav-height: 80px;
@@ -181,6 +183,35 @@ section:nth-of-type(even) {
 body.light-mode .glass-nav {
     background: rgba(251, 249, 245, 0.8);
     border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 14px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 2000;
+    margin-left: 1.5rem;
+}
+
+.menu-toggle span {
+    width: 100%;
+    height: 1px;
+    background: var(--on-surface);
+    transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    transform: translateY(-7px) rotate(-45deg);
 }
 
 .theme-toggle {
@@ -357,6 +388,18 @@ body.light-mode .glass-nav {
     margin-bottom: 1rem;
 }
 
+.insight-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: var(--on-surface-variant);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+}
 .feature-stack {
     display: flex;
     flex-direction: column;
@@ -437,29 +480,70 @@ body.light-mode .glass-nav {
 }
 
 /* Dashboard / Cards */
-.dash-card, .service-card, .addon-card, .pricing-card, .step-card, .calc-container {
-    background: var(--surface-highest);
-    padding: 3rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
-    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-}
-
-.dash-card:hover, .service-card:hover, .addon-card:hover, .pricing-card:hover, .step-card:hover, .tech-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 30px 60px var(--neon-halo);
-}
-
-.techniques-grid:hover .tech-card:not(:hover) {
-    transform: scale(0.95);
-    opacity: 0.7;
-    filter: blur(1px);
-}
-
 .dashboard-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    grid-template-columns: 1fr 2px 1fr; /* Space for the spine */
+    gap: 0;
+    position: relative;
+    align-items: center;
+}
+
+.hud-divider {
+    width: 1px;
+    height: 80%;
+    background: linear-gradient(to bottom, transparent, var(--accent-pulse), transparent);
+    box-shadow: 0 0 20px var(--accent-pulse);
+    opacity: 0.3;
+}
+
+/* Dashboard / Cards: Clinical HUD Refinement (Removes 'Boxes') */
+.dash-card, .service-card, .addon-card, .pricing-card, .step-card, .calc-container {
+    padding: 3.5rem;
+    transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+    position: relative;
+    font-family: var(--font-body);
+}
+
+.hero-content h1 {
+    font-weight: 800;
+    letter-spacing: -0.05rem;
+    line-height: 1.1;
+    font-family: var(--font-heading);
+}
+
+.hero-content h1 em {
+    font-family: var(--font-editorial);
+    font-style: italic;
+    font-weight: 400;
+}
+
+.demo-section .dash-card {
+    background: transparent !important;
+    border: none !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+}
+
+/* Technical Corner Brackets */
+.dash-card::before, .dash-card::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgba(0, 251, 251, 0.2);
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.client-view::before { top: 0; left: 0; border-right: none; border-bottom: none; }
+.client-view::after { bottom: 0; right: 0; border-left: none; border-top: none; }
+
+.admin-view::before { top: 0; right: 0; border-left: none; border-bottom: none; }
+.admin-view::after { bottom: 0; left: 0; border-right: none; border-top: none; }
+
+.demo-section {
+    background-image: radial-gradient(rgba(0, 251, 251, 0.05) 1px, transparent 0);
+    background-size: 40px 40px;
 }
 
 /* Interactive Elements (QR Demo) */
@@ -479,6 +563,17 @@ body.light-mode .glass-nav {
     background: var(--primary);
     color: #ffffff;
     border-color: var(--primary);
+}
+
+.menu-list h3 {
+    font-size: 1.5rem;
+    color: var(--on-surface);
+    border-bottom: 2px solid var(--primary);
+    display: inline-block;
+    padding-bottom: 4px;
+    margin: 2rem 0 1rem;
+    font-style: italic;
+    font-weight: 300;
 }
 
 .menu-item {
@@ -520,6 +615,15 @@ body.light-mode .glass-nav {
 
 .tech-card:hover .tech-img img { transform: scale(1.1); }
 
+.tech-info.badge {
+    padding: 0.6rem 1.4rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+    font-family: var(--font-mono);
+}
 .tech-info {
     padding: 2.5rem;
 }
@@ -624,16 +728,56 @@ body.light-mode .glass-nav {
 
 .suggestion-list p { font-size: 1.1rem; }
 
-/* Form Styles */
+/* Form Styles: Clinical Atelier Minimalist */
+.admin-form .form-group {
+    margin-bottom: 2rem;
+}
+
+.admin-form label {
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--on-surface-variant);
+    margin-bottom: 0.8rem;
+    display: block;
+}
+
 input[type="text"], input[type="number"], select, textarea {
     width: 100%;
-    padding: 1rem;
-    background: var(--surface-low);
-    border: 1px solid var(--surface-high);
-    border-radius: 6px;
+    padding: 0.8rem 0;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--surface-high);
+    border-radius: 0;
     font-family: var(--font-body);
-    font-size: 1rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    color: var(--on-surface);
+    transition: all 0.4s ease;
+    outline: none;
+}
+
+input[type="text"]:focus, input[type="number"]:focus, select:focus, textarea:focus {
+    border-bottom-color: var(--accent-pulse);
+    padding-left: 10px;
+    box-shadow: none;
+}
+
+input::placeholder {
+    color: rgba(128, 128, 128, 0.3);
+}
+
+.checkbox-container {
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.checkbox-container input {
+    accent-color: var(--accent-pulse);
 }
 
 /* Service Grid */
@@ -1017,3 +1161,91 @@ th {
         grid-template-columns: 1fr;
     }
 }
+/* Responsive Refinements: Hospitality 4.0 */
+@media (max-width: 992px) {
+    .featured-grid, .shared-table-grid, .techniques-grid, .pricing-grid, .services-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+    
+    .hero-content h1 { font-size: 4rem; }
+}
+
+@media (max-width: 768px) {
+    section { padding: 4rem 5%; }
+    
+    .nav-right a.btn { display: none; } /* Move 'Get Started' into menu */
+    
+    .menu-toggle { display: flex; }
+    
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: var(--background);
+        background-image: radial-gradient(rgba(0, 251, 251, 0.05) 1px, transparent 0);
+        background-size: 40px 40px;
+        backdrop-filter: blur(40px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+        z-index: 1500;
+        padding: 4rem;
+    }
+    
+    .nav-links.active { right: 0; }
+
+    /* Add a special Get Started link for mobile menu only */
+    .nav-links::after {
+        content: 'GET STARTED';
+        margin-top: 4rem;
+        padding: 1.5rem 3rem;
+        border: 1px solid var(--accent-pulse);
+        color: var(--accent-pulse);
+        font-family: var(--font-mono);
+        letter-spacing: 0.2rem;
+        cursor: pointer;
+    }
+    
+    .nav-links a {
+        font-size: 2rem;
+        margin: 1.5rem 0;
+        font-family: var(--font-heading);
+    }
+
+    .hero-content h1 { font-size: 3rem; }
+    
+    .featured-grid, .shared-table-grid, .techniques-grid, .pricing-grid, .services-grid, .dashboard-grid, .audit-container, .scanner-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .hud-divider {
+        width: 80%;
+        height: 1px;
+        margin: 2rem auto;
+        background: linear-gradient(to right, transparent, var(--accent-pulse), transparent);
+    }
+    
+    .dash-card { padding: 2rem 0; }
+    
+    .feature-large-content, .newsletter-content { padding: 3rem 5%; }
+    
+    .footer-grid { grid-template-columns: 1fr; gap: 4rem; }
+}
+
+/* Fluid Typography Foundation */
+:root {
+    --text-xs: clamp(0.7rem, 0.6rem + 0.5vw, 0.8rem);
+    --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+    --text-lg: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+    --text-xl: clamp(2rem, 1.8rem + 1vw, 3.5rem);
+}
+
+h2 { font-size: var(--text-xl) !important; }
+p { font-size: var(--text-base); }
+.badge { font-size: var(--text-xs); }

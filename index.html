@@ -10,7 +10,7 @@
     <!-- Google Fonts: Outfit & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,300;0,400;0,600;0,800;1,400&family=Manrope:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@300;400;500;600&family=Newsreader:ital,wght@0,300;0,400;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <!-- Stylesheet -->
     <link rel="stylesheet" href="index.css">
 </head>
@@ -28,9 +28,13 @@
             <a href="#stack">Tech Stack</a>
             <a href="#contact">Contact</a>
         </div>
-        <div class="nav-actions">
-            <button id="theme-toggle" class="theme-toggle" title="Switch Theme">🌓</button>
-            <a href="#contact" class="btn btn-primary btn-compact">Get Started</a>
+        <div class="nav-right">
+            <button class="theme-toggle" id="theme-btn" aria-label="Toggle Theme">🌓</button>
+            <a href="#demo" class="btn btn-primary btn-compact">Get Started</a>
+            <button class="menu-toggle" id="mobile-menu-btn" aria-label="Open Menu">
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
@@ -71,7 +75,9 @@
                     <!-- Loaded by JS -->
                 </div>
             </div>
-
+            
+            <div class="hud-divider"></div>
+            
             <!-- Admin View -->
             <div class="dash-card admin-view">
                 <h3>Kitchen Controls <span class="badge admin">Owner View</span></h3>
