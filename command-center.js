@@ -40,10 +40,6 @@ export class CommandCenter {
 
         // Live Ticker Animation
         this.startTickers();
-    }
-
-        // Live Ticker Animation
-        this.startTickers();
         
         // Phase 18: Telemetry (Directive #2)
         this.initTelemetry();
